@@ -25,7 +25,7 @@ export default function Login() {
 
             console.log(response.data);
 
-            navigate('/travel');
+            navigate('/search/travel');
         } catch (error) {
             if (!error?.response) {
                 setError('Erro ao acessar o servidor');
@@ -38,17 +38,20 @@ export default function Login() {
     return (
       <div className="login-form-wrap">
             <div>
-                <h2>Login</h2>
                 <form className='login-form'>
+                <h1>Login</h1>
+                <label htmlFor="email">E-mail</label>
                 <input type="email" 
                         name="email" 
-                        placeholder="Email" 
+                        placeholder="Digite seu e-mail" 
                         required
+                        autoFocus={true}
                         onChange={(e) => setEmail(e.target.value)}
                         />
+                <label htmlFor="password">Senha</label>
                 <input type="password" 
                         name="password" 
-                        placeholder="Password" 
+                        placeholder="Digite sua senha" 
                         required
                         onChange={(e) => setPassword(e.target.value)} />
                 <button type="submit" 
