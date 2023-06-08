@@ -14,7 +14,7 @@ export default function Login() {
         console.log(email, password);
 
         try {
-            const response = await axios.post('https://api-viajei.herokuapp.com/api/v1/signin',
+            const response = await axios.post('http://localhost:8080/api/v1/signin',
                 JSON.stringify({email, password}),
                 {
                     headers: { 
@@ -25,7 +25,9 @@ export default function Login() {
 
             console.log(response.data);
 
-            navigate('/search/travel');
+            navigate('/search/travel', {
+                state: response.data
+            });
         } catch (error) {
             if (!error?.response) {
                 setError('Erro ao acessar o servidor');
