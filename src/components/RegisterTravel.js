@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import moment from "moment/moment";
+import logo from '../img/logo.png';
 
 export default function RegisterTravel() {
     const token = sessionStorage.getItem('token');
@@ -17,7 +18,7 @@ export default function RegisterTravel() {
 
         try {
             const response = await axios.post(
-                'http://localhost:8080/api/v1/travel',
+                'https://api-viajei.herokuapp.com/api/v1/travel',
                 JSON.stringify({
                     destination,
                     description,
@@ -47,7 +48,16 @@ export default function RegisterTravel() {
         <div className="login-form-wrap">
             <div> 
                 <form method="POST" className='login-form'>
+                    <img src={logo} alt="app-viajei-icon"></img>
                     <ul id="navbar-list">
+                        <li>
+                            <Link className="link" to={{
+                                pathname: '/register/travel',
+                                state: { token, userId }
+                            }}>
+                                Cadastrar Viagem
+                            </Link>
+                        </li>
                         <li>
                             <Link className="link" to={{
                                 pathname: '/search/travel',

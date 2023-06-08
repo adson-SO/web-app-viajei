@@ -17,6 +17,12 @@ li {
   margin-top: 5px;
 }
 
+img {
+  width: 150px;
+  margin: auto;
+  display: block;
+}
+
 .link {
   display: inline-block;
   margin-bottom: 20px;

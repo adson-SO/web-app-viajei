@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState } from "react"
 import { Link } from "react-router-dom";
+import logo from '../img/logo.png';
+import registerIcon from '../img/register-travel-icon.png';
 
 export default function SearchTravel() {
     const token = sessionStorage.getItem('token');
@@ -18,7 +20,7 @@ export default function SearchTravel() {
 
         try {
             const response = await axios.get(
-                `http://localhost:8080/api/v1/travel${query}`,
+                `https://api-viajei.herokuapp.com/api/v1/travel${query}`,
                 {
                     headers: { 
                         'Content-Type': 'application/json',
@@ -38,12 +40,21 @@ export default function SearchTravel() {
         <div>
             <div className="login-form-wrap"> 
                 <form method="GET" className='login-form'>
+                    <img src={logo} alt="app-viajei-icon"></img>
                     <ul id="navbar-list">
                         <li>
                             <Link className="link" to={{
                                 pathname: '/register/travel',
                                 state: { token, userId }
-                            }}>Cadastrar Viagem</Link>
+                            }}>
+                                Cadastrar Viagem
+                            </Link>
+                        </li>
+                        <li>
+                            <Link className="link" to={{
+                                pathname: '/search/travel',
+                                state: { token, userId }
+                            }}>Pesquisar Viagem</Link>
                         </li>
                     </ul>
                     <p>Digite os campos que deseja pesquisar</p>

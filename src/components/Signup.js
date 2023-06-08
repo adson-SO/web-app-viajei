@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import logo from '../img/logo.png';
 
 export default function Signup() {
     const navigate = useNavigate();
@@ -13,7 +14,7 @@ export default function Signup() {
 
         try {
             const response = await axios.post(
-                'http://localhost:8080/api/v1/signup',
+                'https://api-viajei.herokuapp.com/api/v1/signup',
                 {
                     name,
                     email,
@@ -41,6 +42,7 @@ export default function Signup() {
         <div>
             <div className="login-form-wrap">
                 <form method="POST" className='login-form'>
+                    <img src={logo} alt="app-viajei-icon"></img>
                     <h1>Crie sua conta</h1>
                     <p>Digite os seus dados de acesso no campo abaixo.</p>
                     <label htmlFor="Name">Nome</label>
@@ -75,6 +77,7 @@ export default function Signup() {
                         className="btn"
                         onClick={(e) => handleSignup(e)}
                     />
+                    <p>Caso já possua uma conta, clique <Link to={{ pathname: '/login' }}>aqui</Link> para realizar o login.</p>
                 </form>
             </div>
         </div>
