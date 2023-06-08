@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import logo from '../img/logo.png'
 
 export default function Login() {
     const navigate = useNavigate();
@@ -42,6 +43,7 @@ export default function Login() {
       <div className="login-form-wrap">
             <div>
                 <form className='login-form'>
+                <img src={logo} alt="app-viajei-icon"></img>
                 <h1>Login</h1>
                 <label htmlFor="email">E-mail</label>
                 <input type="email" 

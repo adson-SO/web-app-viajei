@@ -49,7 +49,7 @@ export default function RegisterTravel() {
                 <form method="POST" className='login-form'>
                     <ul id="navbar-list">
                         <li>
-                            <Link to={{
+                            <Link className="link" to={{
                                 pathname: '/search/travel',
                                 state: { token, userId }
                             }}>Pesquisar Viagem</Link>
