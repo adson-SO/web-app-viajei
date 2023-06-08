@@ -12,7 +12,7 @@ function App() {
       <header className="App-header">
       <Routes>
         <Route path='/' element={<Signup />} />
-        <Route path='login' element={<Login />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/register/travel' element={<RegisterTravel />} />
         <Route path='/search/travel' element={<SearchTravel />} />
       </Routes>

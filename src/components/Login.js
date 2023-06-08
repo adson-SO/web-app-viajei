@@ -23,7 +23,10 @@ export default function Login() {
                 }            
             );
 
-            navigate('/search/travel', {
+            sessionStorage.setItem('token', response.data.token);
+            sessionStorage.setItem('userId', response.data.userId);
+
+            navigate('/register/travel', {
                 state: response.data
             });
         } catch (error) {

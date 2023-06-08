@@ -26,7 +26,10 @@ export default function Signup() {
                 }
             );
 
-            navigate('/search/travel', {
+            sessionStorage.setItem('token', response.data.token);
+            sessionStorage.setItem('userId', response.data.userId);
+
+            navigate('/register/travel', {
                 state: response.data
             });
         } catch (err) {
@@ -46,6 +49,7 @@ export default function Signup() {
                         name="name"
                         placeholder="Digite seu Nome" 
                         autoFocus={true}
+                        required
                         onChange={(e) => setName(e.target.value)}
                     />
                     <label htmlFor="email">E-mail</label>
@@ -54,6 +58,7 @@ export default function Signup() {
                         name="email" 
                         placeholder="Digite seu e-mail" 
                         autoFocus={true} 
+                        required
                         onChange={(e) => setEmail(e.target.value)}
                     />
                     <label htmlFor="password">Senha</label>
@@ -61,6 +66,7 @@ export default function Signup() {
                         type="password"
                         name="password" 
                         placeholder="Digite sua senha" 
+                        required
                         onChange={(e) => setPassword(e.target.value)}
                     />
                     <input 

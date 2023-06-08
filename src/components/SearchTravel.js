@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useState } from "react"
-import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function SearchTravel() {
-    const location = useLocation();
+    const token = sessionStorage.getItem('token');
+    const userId = sessionStorage.getItem('userId');
     const [price, setPrice] = useState(0);
     const [type, setType] = useState('');
 
@@ -21,13 +22,14 @@ export default function SearchTravel() {
                 {
                     headers: { 
                         'Content-Type': 'application/json',
-                        'Authorization': location.state.token
+                        'Authorization': token
                     }
                 }   
             )
 
             console.log(response.data);
         } catch (err) {
+            console.log(err);
             alert('Algo deu errado!');
         }
     }
@@ -37,8 +39,12 @@ export default function SearchTravel() {
             <div className="login-form-wrap"> 
                 <form method="GET" className='login-form'>
                     <ul id="navbar-list">
-                        <li><a href="pesquisa_viagem.html">Pesquisar Viagem</a></li>
-                        <li><a href="cadastro_viagem.html">Cadastrar Viagem</a></li>
+                        <li>
+                            <Link to={{
+                                pathname: '/register/travel',
+                                state: { token, userId }
+                            }}>Cadastrar Viagem</Link>
+                        </li>
                     </ul>
                     <p>Digite os campos que deseja pesquisar</p>
                     <label htmlFor="preco">Preço</label>
