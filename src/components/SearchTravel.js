@@ -1,9 +1,8 @@
 import axios from "axios";
 import { useState } from "react"
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export default function SearchTravel() {
-    const navigate = useNavigate();
     const location = useLocation();
     const [price, setPrice] = useState(0);
     const [type, setType] = useState('');
@@ -29,7 +28,7 @@ export default function SearchTravel() {
 
             console.log(response.data);
         } catch (err) {
-            navigate('/');
+            alert('Algo deu errado!');
         }
     }
 

@@ -23,8 +23,6 @@ export default function Login() {
                 }            
             );
 
-            console.log(response.data);
-
             navigate('/search/travel', {
                 state: response.data
             });
