@@ -32,12 +32,25 @@ ul {
 .text {
   display: flex;
   flex-direction: row;
-  text-align: center;
+  text-align: justify;
   vertical-align: middle;
 }
 
-.text > p {
-  padding: 8px 5px;
+.travels-card {
+  padding: 5px;
+}
+
+.fullroadmap {   
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fullroadmap > main { 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .link {

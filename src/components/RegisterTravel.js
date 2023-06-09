@@ -18,7 +18,7 @@ export default function RegisterTravel() {
 
         try {
             const response = await axios.post(
-                `${process.env.BASE_URL}/api/v1/travel`,
+                `http://localhost:8080/api/v1/travel`,
                 JSON.stringify({
                     destination,
                     description,

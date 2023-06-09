@@ -6,6 +6,7 @@ import SearchTravel from './components/SearchTravel';
 import Signup from './components/Signup';
 import Travels from './components/Travels';
 import SearchTravelResult from './components/SearchTravelsResult';
+import TravelDetails from './components/TravelDetails';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path='/search/travel' element={<SearchTravel />} />
         <Route path='/travel' element={<Travels />} />
         <Route path='/travel/result' element={<SearchTravelResult />} />
+        <Route path='/travel/details' element={<TravelDetails />} />
       </Routes>
       </header>
     </div>

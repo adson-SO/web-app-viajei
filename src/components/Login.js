@@ -15,7 +15,7 @@ export default function Login() {
         console.log(email, password);
 
         try {
-            const response = await axios.post(`${process.env.BASE_URL}/api/v1/signin`,
+            const response = await axios.post(`http://localhost:8080/api/v1/signin`,
                 JSON.stringify({email, password}),
                 {
                     headers: { 

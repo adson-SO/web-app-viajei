@@ -1,10 +1,20 @@
 import logo from '../img/logo.png'
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { TableRow, Card } from '@material-ui/core';
 
 export default function SearchTravelResult() {
     const location = useLocation();
+    const navigate = useNavigate();
     const token = sessionStorage.getItem('token');
     const userId = sessionStorage.getItem('userId');
+
+    const handleEvent = (e, travel) => {
+        e.preventDefault();
+
+        navigate('/travel/details', {
+            state: travel
+        });
+    }
 
     return (
         <div>
@@ -31,16 +41,17 @@ export default function SearchTravelResult() {
                             <ul>
                                 {location.state.travels.map((travel) => {
                                     return (
-                                        <li>
-                                            <div className='travel-container'>
-                                                <h4>Destino:</h4>
-                                                <p className="destination">{travel.destination}</p>
-                                                <h4>Preço:</h4>
-                                                <p className="price">{travel.price}</p>
-                                                <h4>Tipo:</h4>
-                                                <p className="type">{travel.type}</p>
+                                        <TableRow>
+                                            <div onClick={(e) => handleEvent(e, travel)}>
+                                                <Card className='travels-card' style={{
+                                                    backGroundColor: 'red'
+                                                }}> 
+                                                    <h4 className="destination">Destino: {travel.destination}</h4>
+                                                    <h4 className="price">Preço: R$ {travel.price},00</h4>
+                                                    <h4 className="type">Tipo: {travel.type}</h4>
+                                                </Card>
                                             </div>
-                                        </li>
+                                        </TableRow>
                                     )
                                 }
                                 )}
