@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useState } from "react"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from '../img/logo.png';
-import registerIcon from '../img/register-travel-icon.png';
 
 export default function SearchTravel() {
+    const navigate = useNavigate();
     const token = sessionStorage.getItem('token');
     const userId = sessionStorage.getItem('userId');
     const [price, setPrice] = useState(0);
@@ -13,23 +13,28 @@ export default function SearchTravel() {
     const handleSearchTravel = async (e) => {
         e.preventDefault();
         let query = '';
+        const priceString = price.toString();
 
-        if (price !== 0) query += `?price=${price.toString}`;
-        if (price !== 0 && type !== '') query += `+type=${type}`;
+        if (price !== 0) query += `?price=${priceString}`;
+        if (price !== 0 && type !== '') query += `&type=${type}`;
         if (price === 0 && type !== '') query += `?type=${type}`;
 
         try {
             const response = await axios.get(
-                `https://api-viajei.herokuapp.com/api/v1/travel${query}`,
+                `http://localhost:8080/api/v1/travel${query}`,
                 {
                     headers: { 
                         'Content-Type': 'application/json',
                         'Authorization': token
                     }
                 }   
-            )
+            );
 
             console.log(response.data);
+
+            navigate('/travel/result', {
+                state: response.data
+            });
         } catch (err) {
             console.log(err);
             alert('Algo deu errado!');

@@ -23,6 +23,23 @@ img {
   display: block;
 }
 
+ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+.text {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.text > p {
+  padding: 8px 5px;
+}
+
 .link {
   display: inline-block;
   margin-bottom: 20px;

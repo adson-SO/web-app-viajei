@@ -15,7 +15,7 @@ export default function Login() {
         console.log(email, password);
 
         try {
-            const response = await axios.post('https://api-viajei.herokuapp.com/api/v1/signin',
+            const response = await axios.post('http://localhost:8080/api/v1/signin',
                 JSON.stringify({email, password}),
                 {
                     headers: { 
@@ -24,10 +24,11 @@ export default function Login() {
                 }            
             );
 
+            sessionStorage.clear();
             sessionStorage.setItem('token', response.data.token);
             sessionStorage.setItem('userId', response.data.userId);
 
-            navigate('/register/travel', {
+            navigate('/travel', {
                 state: response.data
             });
         } catch (error) {
