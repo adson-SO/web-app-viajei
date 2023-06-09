@@ -17,24 +17,53 @@ li {
   margin-top: 5px;
 }
 
-a,
-a:link,
-a:visited,
-a:active {
-  color: #3ca9e2;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+img {
+  width: 150px;
+  margin: auto;
+  display: block;
 }
-a:focus, a:hover,
-a:link:focus,
-a:link:hover,
-a:visited:focus,
-a:visited:hover,
-a:active:focus,
-a:active:hover {
-  color: #329dd5;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+
+ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+.text {
+  display: flex;
+  flex-direction: row;
+  text-align: justify;
+  vertical-align: middle;
+}
+
+.travels-card {
+  padding: 5px;
+}
+
+.fullroadmap {   
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fullroadmap > main { 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.link {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-size: 13px;
+  color: #555;
+  transition: all linear 160ms;
+  justify-content: left;
+}
+
+.link:hover {
+  color: #45d0f3e1;
 }
 
 .login-form-wrap {

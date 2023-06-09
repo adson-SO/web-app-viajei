@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import logo from '../img/logo.png'
 
 export default function Login() {
     const navigate = useNavigate();
@@ -14,7 +15,7 @@ export default function Login() {
         console.log(email, password);
 
         try {
-            const response = await axios.post('https://api-viajei.herokuapp.com/api/v1/signin',
+            const response = await axios.post(`https://api-viajei.herokuapp.com/api/v1/signin`,
                 JSON.stringify({email, password}),
                 {
                     headers: { 
@@ -23,9 +24,13 @@ export default function Login() {
                 }            
             );
 
-            console.log(response.data);
+            sessionStorage.clear();
+            sessionStorage.setItem('token', response.data.token);
+            sessionStorage.setItem('userId', response.data.userId);
 
-            navigate('/travel');
+            navigate('/travel', {
+                state: response.data
+            });
         } catch (error) {
             if (!error?.response) {
                 setError('Erro ao acessar o servidor');
@@ -38,17 +43,21 @@ export default function Login() {
     return (
       <div className="login-form-wrap">
             <div>
-                <h2>Login</h2>
                 <form className='login-form'>
+                <img src={logo} alt="app-viajei-icon"></img>
+                <h1>Login</h1>
+                <label htmlFor="email">E-mail</label>
                 <input type="email" 
                         name="email" 
-                        placeholder="Email" 
+                        placeholder="Digite seu e-mail" 
                         required
+                        autoFocus={true}
                         onChange={(e) => setEmail(e.target.value)}
                         />
+                <label htmlFor="password">Senha</label>
                 <input type="password" 
                         name="password" 
-                        placeholder="Password" 
+                        placeholder="Digite sua senha" 
                         required
                         onChange={(e) => setPassword(e.target.value)} />
                 <button type="submit" 
