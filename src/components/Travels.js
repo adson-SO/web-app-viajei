@@ -13,7 +13,7 @@ export default function Travels() {
     useEffect(() => {
         async function getTravels() {
             try {
-                const response = await axios.get(`http://localhost:8080/api/v1/travel`, {
+                const response = await axios.get(`https://api-viajei.herokuapp.com/api/v1/travel`, {
                     headers: { 
                         'Content-Type': 'application/json',
                         'Authorization': token
