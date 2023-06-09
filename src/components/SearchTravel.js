@@ -21,7 +21,7 @@ export default function SearchTravel() {
 
         try {
             const response = await axios.get(
-                `http://localhost:8080/api/v1/travel${query}`,
+                `${process.env.BASE_URL}/api/v1/travel${query}`,
                 {
                     headers: { 
                         'Content-Type': 'application/json',

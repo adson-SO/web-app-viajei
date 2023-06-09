@@ -14,7 +14,7 @@ export default function Signup() {
 
         try {
             const response = await axios.post(
-                'http://localhost:8080/api/v1/signup',
+                `${process.env.BASE_URL}/api/v1/signup`,
                 {
                     name,
                     email,
