@@ -18,7 +18,7 @@ export default function RegisterTravel() {
 
         try {
             const response = await axios.post(
-                `http://localhost:8080/api/v1/travel`,
+                `https://api-viajei.herokuapp.com/api/v1/travel`,
                 JSON.stringify({
                     destination,
                     description,
