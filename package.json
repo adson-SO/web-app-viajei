@@ -2,7 +2,8 @@
   "name": "viajei-web",
   "version": "0.1.0",
   "engines": {
-    "node": "18.16.0"
+    "node": "18.16.0",
+    "npm": "6.14.16"
   },
   "private": true,
   "dependencies": {
