@@ -7,7 +7,6 @@ export default function Login() {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -15,7 +14,7 @@ export default function Login() {
         console.log(email, password);
 
         try {
-            const response = await axios.post(`https://api-viajei.herokuapp.com/api/v1/signin`,
+            const response = await axios.post(`http://localhost:8080/api/v1/signin`,
                 JSON.stringify({email, password}),
                 {
                     headers: { 
@@ -28,15 +27,12 @@ export default function Login() {
             sessionStorage.setItem('token', response.data.token);
             sessionStorage.setItem('userId', response.data.userId);
 
-            navigate('/travel', {
+            navigate('/search/travel', {
                 state: response.data
             });
-        } catch (error) {
-            if (!error?.response) {
-                setError('Erro ao acessar o servidor');
-            } else if (error.response.status === 401) {
-                setError('Usuário ou senha inválidos');
-            }
+        } catch (err) {
+            console.log(err);
+            alert('Algo deu errado!');
         }
     };
 
@@ -64,7 +60,6 @@ export default function Login() {
                         className='btn-login'
                         onClick={(e) => handleLogin(e)}>Login</button>
                 </form>
-                <p>{error}</p>
             </div>
       </div>
     );

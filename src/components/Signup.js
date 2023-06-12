@@ -14,7 +14,7 @@ export default function Signup() {
 
         try {
             const response = await axios.post(
-                `https://api-viajei.herokuapp.com/api/v1/signup`,
+                `http://localhost:8080/api/v1/signup`,
                 {
                     name,
                     email,
@@ -31,7 +31,7 @@ export default function Signup() {
             sessionStorage.setItem('token', response.data.token);
             sessionStorage.setItem('userId', response.data.userId);
 
-            navigate('/travel', {
+            navigate('/search/travel', {
                 state: response.data
             });
         } catch (err) {

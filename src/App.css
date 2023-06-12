@@ -159,3 +159,13 @@ input[type="email"]:focus {
   transform: scale(1.05);
   background-color: #45d0f3e1;
 }
+
+.travel-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 7px;
+  padding: 10px;
+  box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.4);
+  gap: 5px
+}

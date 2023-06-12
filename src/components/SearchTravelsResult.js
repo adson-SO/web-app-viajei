@@ -1,6 +1,5 @@
 import logo from '../img/logo.png'
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { TableRow, Card } from '@material-ui/core';
 
 export default function SearchTravelResult() {
     const location = useLocation();
@@ -41,17 +40,14 @@ export default function SearchTravelResult() {
                             <ul>
                                 {location.state.travels.map((travel) => {
                                     return (
-                                        <TableRow>
-                                            <div onClick={(e) => handleEvent(e, travel)}>
-                                                <Card className='travels-card' style={{
-                                                    backGroundColor: 'red'
-                                                }}> 
+                                        <div className='travel-card'>
                                                     <h4 className="destination">Destino: {travel.destination}</h4>
                                                     <h4 className="price">Preço: R$ {travel.price},00</h4>
                                                     <h4 className="type">Tipo: {travel.type}</h4>
-                                                </Card>
+                                                    <button type="submit" 
+                                                            className='btn'
+                                                            onClick={(e) => handleEvent(e, travel)}>Ver mais</button>
                                             </div>
-                                        </TableRow>
                                     )
                                 }
                                 )}

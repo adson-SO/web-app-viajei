@@ -19,7 +19,7 @@ export default function TravelDetails() {
                             }}>Pesquisar Viagem</Link>
                         </li>
                     </ul>
-            <container className="fullroadmap">
+            <div className="fullroadmap">
                 <main>
                     <img src={logo} alt="viajei-logo"/>
                 </main>
@@ -38,7 +38,7 @@ export default function TravelDetails() {
                         </div>
                     </TableRow>
                 </article>
-            </container>
+            </div>
         </div>
     )
 }
