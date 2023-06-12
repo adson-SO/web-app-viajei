@@ -25,7 +25,7 @@ export default function TravelDetails() {
                 <article>
                         <div className='travel-card'>
                             <h4 className="destination">Destino: {location.state.destination}</h4>
-                            <h4 className="price">Preço: R$ {location.state.price},00</h4>
+                            <h4 className="price">Preço: R$ {location.state.price}</h4>
                             <h4 className="date">Data: {location.state.date}</h4>
                             <h4 className="type">Tipo: {location.state.type}</h4>
                             <h4 className="description">Tipo: {location.state.description}</h4>

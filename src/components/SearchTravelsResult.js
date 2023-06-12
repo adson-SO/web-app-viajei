@@ -42,7 +42,7 @@ export default function SearchTravelResult() {
                                     return (
                                         <div className='travel-card'>
                                             <h4 className="destination">Destino: {travel.destination}</h4>
-                                            <h4 className="price">Preço: R$ {travel.price},00</h4>
+                                            <h4 className="price">Preço: R$ {travel.price}</h4>
                                             <h4 className="type">Tipo: {travel.type}</h4>
                                             <button type="submit" 
                                                 className='btn'
