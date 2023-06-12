@@ -37,7 +37,7 @@ export default function SearchTravelResult() {
                     <h2>Resultado</h2>
                     <div className="resultado-roteiro">
                         <div className="text">
-                            <ul>
+                            <ul className='travels-list'>
                                 {location.state.travels.map((travel) => {
                                     return (
                                         <div className='travel-card'>

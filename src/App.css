@@ -29,6 +29,10 @@ ul {
   list-style: none;
 }
 
+.travels-list {
+  display: table-row;
+}
+
 .text {
   display: flex;
   flex-direction: row;
